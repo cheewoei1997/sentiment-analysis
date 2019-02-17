@@ -34,6 +34,18 @@ app.config['SECRET_KEY'] = 'devkey'
 app.config['RECAPTCHA_PUBLIC_KEY'] = \
     '6Lfol9cSAAAAADAkodaYl9wvQCwBMr3qGR_PPHcw'
 
+class SentimentForm(Form):
+    field1 = TextField('Type your sentence here', validators=[Required()])
+    radio_field = RadioField('This is a radio field', choices=[
+        ('bernb', 'BernoulliNB'),
+        ('multi', 'Multinomial'),
+        ('logreg', 'Logistic Regression'),
+        ('svc', 'SVC'),
+        ('lsvc', 'LinearSVC'),
+    ])
+
+    submit_button = SubmitField('Submit')
+
 @app.route('/', methods=('GET', 'POST'))
 def index():
     # form = ExampleForm()
