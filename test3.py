@@ -13,6 +13,8 @@ from sklearn.metrics import  accuracy_score
 
 import os
 
+nltk.download('punkt')
+
 # ==============================================================================
 
 def word_feats(words):
@@ -29,8 +31,8 @@ def score(classifier):
             n = n + 1
     return n / s
 
-sentence = 'Not only he is not well performed, he has not managed to get some valuable contacts as well.'
-# sentence = 'He is not a happy and great guy.'
+# sentence = 'Not only he is not well performed, he has not managed to get some valuable contacts as well.'
+sentence = 'He is not a happy and great guy.'
 target = nltk.word_tokenize(sentence)
 
 # Loads the positive and negative words
@@ -69,7 +71,7 @@ print(len(train_set))
 # Try changing from below:
 # [BernoulliNB(), MultinomialNB(), LogisticRegression(), SVC(),
 #     LinearSVC(), NuSVC()]
-classifier = SklearnClassifier(LinearSVC())
+classifier = SklearnClassifier(BernoulliNB())
 classifier.train(train_set)
 
 
