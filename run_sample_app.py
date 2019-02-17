@@ -30,12 +30,12 @@ AppConfig(app, None)  # Flask-Appconfig is not necessary, but
 Bootstrap(app)
 
 # in a real app, these should be configured through Flask-Appconfig
-app.config['SECRET_KEY'] = 'devkey'
-app.config['RECAPTCHA_PUBLIC_KEY'] = \
-    '6Lfol9cSAAAAADAkodaYl9wvQCwBMr3qGR_PPHcw'
+# app.config['SECRET_KEY'] = 'devkey'
+# app.config['RECAPTCHA_PUBLIC_KEY'] = \
+#     '6Lfol9cSAAAAADAkodaYl9wvQCwBMr3qGR_PPHcw'
 
 class SentimentForm(Form):
-    field1 = TextField('Type your sentence here', validators=[Required()])
+    sentence = TextField('Type your sentence here', validators=[Required()])
     radio_field = RadioField('This is a radio field', choices=[
         ('bernb', 'BernoulliNB'),
         ('multi', 'Multinomial'),
