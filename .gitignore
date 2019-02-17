@@ -102,3 +102,14 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+# datasets
+/aclimdb
+/Sentiment
+aclimdb*
+Sentiment*
+Senti*
+training*
+
+# Project stuff
+.vscode
