@@ -16,8 +16,8 @@
   {{ wtf.quick_form(form, form_type='inline', button_map={'submit_button': 'primary'}) }}
   -->
 
-  <h2>Put your sentence in and choose your classifier type.</h2>
-  {{ wtf.quick_form(form, form_type='horizontal', button_map={'submit_button': 'primary'})}}
+  <h3>Put your sentence in and choose your classifier type.</h3>
+  {{ wtf.quick_form(form, form_type='horizontal', button_map={'submit_button': 'primary', 'submit':'success'})}}
 </div>
 {% endblock %}
 

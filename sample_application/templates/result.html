@@ -1,1 +1,26 @@
-You're at the results page
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% import "bootstrap/fixes.html" as fixes %}
+{% import "bootstrap/utils.html" as util %}
+
+{% block content %}
+    {{util.flashed_messages(dismissible=True)}}
+    <div class="container">
+        <h2>Results</h2>
+        {% if context %}
+        <p><b>Classifier chosen: </b>{{context.choice}}</p>
+
+        <p><b>Sentence: </b>{{context.sentence}}</p><br>
+        
+        <p>Positive confidence: {{context.posPercent}}</p>
+        <p>Negative confidence: {{context.negPercent}}</p>
+        <p>Positive classified: {{context.pos}}</p>
+        <p>Negative classified: {{context.neg}}</p>
+        {% endif %}
+    </div>
+{% endblock %}
+
+{% block head %}
+    {{super()}}
+    {{fixes.ie8()}}
+{% endblock %}
