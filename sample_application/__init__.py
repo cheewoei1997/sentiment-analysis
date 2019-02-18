@@ -21,6 +21,7 @@ from sklearn.linear_model import  LogisticRegression
 from sklearn.metrics import  accuracy_score
 
 import os
+from random import shuffle
 
 nltk.download('punkt')
 
@@ -155,6 +156,12 @@ def get_dataset(target):
     negative_features = [(word_feats(neg), 'neg') for neg in neg_words]
     neutral_features = [(word_feats(neu.lower()), 'neu') for neu in neu_words]
 
+    shuffle(negative_features)
+    negative_features = negative_features[:len(positive_features)]
+    print('Positive feats:', len(positive_features))
+    print('Negative feats:', len(negative_features))
+    print('Neutral feats:', neutral_features)
+
     train_set = positive_features + negative_features + neutral_features
     return train_set
 
@@ -179,6 +186,10 @@ def set_classifier(chosen_classifier, train_set, sentence):
     posPercent = str(float(pos)/len(sentence))
     negPercent = str(float(neg)/len(sentence))
     
+    # print ('Accuracy:', nltk.classify.util.accuracy(classifier, sentence))
+    classifier.show_most_informative_features()
+    # print('Score:', score)
+
     print('Positive: ' + posPercent)
     print('Negative: ' + negPercent)
     print('Pos', pos)
