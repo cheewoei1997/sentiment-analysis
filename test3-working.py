@@ -12,6 +12,7 @@ from sklearn.linear_model import  LogisticRegression
 from sklearn.metrics import  accuracy_score
 
 import os
+from random import shuffle
 
 nltk.download('punkt')
 
@@ -32,7 +33,7 @@ def score(classifier):
     return n / s
 
 # sentence = 'Not only he is not well performed, he has not managed to get some valuable contacts as well.'
-sentence = 'He is not a happy and great guy.'
+sentence = 'the movie is great, the script was awesome, and it has just become my favorite'
 target = nltk.word_tokenize(sentence)
 
 # Loads the positive and negative words
@@ -43,6 +44,10 @@ neg_words = open(os.path.join('datasets', 'negative-words.txt'), 'r').read()
 # Tokenize the words
 pos_words = nltk.word_tokenize(pos_words)
 neg_words = nltk.word_tokenize(neg_words)
+print(len(pos_words))
+print(len(neg_words))
+shuffle(neg_words)
+neg_words = neg_words[:2139]
 
 # Keep both positive and negative into posneg
 posneg = pos_words + neg_words
@@ -71,7 +76,7 @@ print(len(train_set))
 # Try changing from below:
 # [BernoulliNB(), MultinomialNB(), LogisticRegression(), SVC(),
 #     LinearSVC(), NuSVC()]
-classifier = SklearnClassifier(BernoulliNB())
+classifier = SklearnClassifier(SVC())
 classifier.train(train_set)
 
 
