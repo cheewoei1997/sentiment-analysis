@@ -1,7 +1,7 @@
 # Sentiment Analysis
 The best practices for the development of a sentiment analysis app is practiced here.  
 
-This application is bootstraped with Flask, but it has not been properly managed, so do expect a lot of messy code and unorganised files. It's 2% for interface so don't expect much. Sure, the project structure could be a lot simpler, but I guess you could say that I like my life much simpler too. None of the best coding practices were followed, because we needed quick deployment. We should've spent more time on the sentiment analysis model.  
+This application is bootstraped with Flask, but it has not been properly managed, so do expect a lot of messy code and unorganised files.
 
 #### Documents
 Copy away our hard work if you want to. It's our pleasure.  
@@ -46,7 +46,7 @@ python run_sample_app.py
 Hooray! You've deployed your lame Flask server. Why don't you navigate over to 
 http://127.0.0.1:5000/ to check it out.  
 
-Thank you all for coming to my TED Talk I hope this was worth your time, because it definitely was not for only 2%.
+Thank you all for coming to my TED Talk I hope this was worth your time.
 
 ## Credits
 * Do Chen Hao
